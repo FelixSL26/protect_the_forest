@@ -12,7 +12,6 @@ public class MonkeyCardManager : MonoBehaviour
 
     [Header("Cards Parameters")]
     public int amtOfCards;
-   // int index = 0;
     public MonkeyCardScriptableObjects[] monkeyCardSO;
     public GameObject cardPrefab;
     public Transform cardHolderTransform;
@@ -25,6 +24,7 @@ public class MonkeyCardManager : MonoBehaviour
 
     private void Start()
     {
+        amtOfCards = monkeyCardSO.Length;
         monkeyCards = new GameObject[amtOfCards];
 
         for (int i = 0; i < amtOfCards; i++ )
