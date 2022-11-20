@@ -30,7 +30,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     {
         //Remove the gameObject
         //monkeySprite = null;
-        //Destroy(monkey);
+        Destroy(monkey);
     }
 
 
