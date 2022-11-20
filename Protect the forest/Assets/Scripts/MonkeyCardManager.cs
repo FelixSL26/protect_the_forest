@@ -39,7 +39,10 @@ public class MonkeyCardManager : MonoBehaviour
 
         CardManager cardManager = card.GetComponent<CardManager>();
 
+        cardManager.monkeyCardScriptableObjects = monkeyCardSO[index];
         cardManager.monkeySprite = monkeyCardSO[index].monkeySprite;
+
+        cardManager.UI = GameObject.FindGameObjectWithTag("Canvas");
 
         monkeyCards[index] = card;
 
