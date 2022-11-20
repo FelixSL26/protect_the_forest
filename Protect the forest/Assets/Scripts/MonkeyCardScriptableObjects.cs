@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class MonkeyCardScriptableObjects : ScriptableObject
 {
-    public Texture2D monkeyIcon;
+    public Sprite monkeyIcon;
     public int cost;
     public float cooldown;
 }
