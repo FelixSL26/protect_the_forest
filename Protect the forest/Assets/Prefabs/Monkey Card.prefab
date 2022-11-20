@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7102714753914018401}
   - component: {fileID: 1847937237713747122}
   - component: {fileID: 7376679097691959476}
+  - component: {fileID: 5598159540388089065}
   m_Layer: 5
   m_Name: Monkey Card
   m_TagString: Untagged
@@ -74,6 +75,21 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5598159540388089065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185724889668714656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e01a8cfb04594d981e982ac2301e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monkeyCardScriptableObjects: {fileID: 0}
+  monkeySprite: {fileID: 0}
+  monkeyPrefab: {fileID: 5048050295025469231, guid: 400576ec67542f146bd14268bb6ef1a1, type: 3}
 --- !u!1 &454866233166316109
 GameObject:
   m_ObjectHideFlags: 0
