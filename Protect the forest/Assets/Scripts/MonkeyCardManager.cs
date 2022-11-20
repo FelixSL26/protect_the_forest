@@ -37,6 +37,10 @@ public class MonkeyCardManager : MonoBehaviour
     {
         GameObject card = Instantiate(cardPrefab, cardHolderTransform);
 
+        CardManager cardManager = card.GetComponent<CardManager>();
+
+        cardManager.monkeySprite = monkeyCardSO[index].monkeySprite;
+
         monkeyCards[index] = card;
 
         //getting variables

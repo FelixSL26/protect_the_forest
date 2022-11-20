@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MANUSIA
   m_EditorClassIdentifier: 
   monkeyIcon: {fileID: 21300000, guid: 10a0a02637ab5d543b1aebc580ae2690, type: 3}
+  monkeySprite: {fileID: 21300000, guid: 10a0a02637ab5d543b1aebc580ae2690, type: 3}
   cost: 1000
   cooldown: 0
