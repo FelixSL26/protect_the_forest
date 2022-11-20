@@ -11,10 +11,12 @@ public class SlotsManagerCollider : MonoBehaviour
     {
         if (monkey == null)
         {
+            Debug.Log("monkey null");
             if (GameObject.FindGameObjectWithTag("Monkey") != null)
             {
                 monkey = GameObject.FindGameObjectWithTag("Monkey");
                 monkey.transform.SetParent(this.transform);
+                Debug.Log("test");
                 monkey.transform.localPosition = Vector3.zero;
             }
 

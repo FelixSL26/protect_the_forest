@@ -14,6 +14,8 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     {
         //take a gameObject
         monkey.GetComponent<SpriteRenderer>().sprite = monkeySprite;
+
+
         monkey.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     }
