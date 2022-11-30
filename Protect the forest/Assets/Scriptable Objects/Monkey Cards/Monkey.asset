@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e252d2026adc3441b75cdca00f1bf73, type: 3}
   m_Name: Monkey
   m_EditorClassIdentifier: 
-  monkeyIcon: {fileID: 21300000, guid: 10a0a02637ab5d543b1aebc580ae2690, type: 3}
-  monkeySprite: {fileID: 21300000, guid: 10a0a02637ab5d543b1aebc580ae2690, type: 3}
-  cost: 1000
-  cooldown: 0
+  monkeyIcon: {fileID: 21300000, guid: 403f4a4ec9cb25543a60c6e50bec06ab, type: 3}
+  monkeySprite: {fileID: 21300000, guid: 403f4a4ec9cb25543a60c6e50bec06ab, type: 3}
+  cost: 30
+  cooldown: 1.5

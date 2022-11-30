@@ -3645,7 +3645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amtOfCards: 2
   monkeyCardSO:
-  - {fileID: 11400000, guid: d3474b48ba6bff542a6dbc86acc8abf3, type: 2}
+  - {fileID: 11400000, guid: 4e2cd6116e37aec48bcff3deb52566df, type: 2}
   - {fileID: 11400000, guid: fb66644b165519a4797f7d154720fbd2, type: 2}
   cardPrefab: {fileID: 185724889668714656, guid: eacc646dddd800a4c8b7971c07b6a545, type: 3}
   cardHolderTransform: {fileID: 1126455728}
