@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BananaSpawner : MonoBehaviour
 {
+    public bool isBanana;
+
     public float minTime;
     public float maxTime;
     public float time;
@@ -16,22 +18,45 @@ public class BananaSpawner : MonoBehaviour
     private void Start()
     {
         time = Random.Range(minTime, maxTime);
-        pos.x = Random.Range(minPos.x, maxPos.x);
-        pos.y = Random.Range(minPos.y, maxPos.y);
-        pos.z = -1;
+        if (!isBanana)
+        {
+            pos.x = Random.Range(minPos.x, maxPos.x);
+            pos.y = Random.Range(minPos.y, maxPos.y);
+            pos.z = -1;
+        }
+        else
+        {
+            pos.x = 0;
+            pos.y = 0;
+            pos.z = -1;
+        }
+
         StartCoroutine(SpawnBanana());
     }
 
     public IEnumerator SpawnBanana()
     {
         yield return new WaitForSeconds(time);
-        Instantiate(Banana, pos, Quaternion.identity);
+        GameObject BananaObject = Instantiate(Banana, pos, Quaternion.identity);
 
         time = Random.Range(minTime, maxTime);
-        pos.x = Random.Range(minPos.x, maxPos.x);
-        pos.y = Random.Range(minPos.y, maxPos.y);
-        pos.z = -1;
-        time = Random.Range(minTime, maxTime);
+        if (!isBanana)
+        {
+            pos.x = Random.Range(minPos.x, maxPos.x);
+            pos.y = Random.Range(minPos.y, maxPos.y);
+            pos.z = -1;
+        }
+        else
+        {
+            Destroy(BananaObject.GetComponent<Rigidbody2D>());
+            pos.x = 0;
+            pos.y = 0;
+            pos.z = -1;
+
+            BananaObject.transform.position = new Vector3(0, 0, -1);
+            BananaObject.transform.parent = this.transform;
+            BananaObject.transform.localPosition = new Vector3(0, 0, -1);
+        }
         StartCoroutine(SpawnBanana());
     }
 

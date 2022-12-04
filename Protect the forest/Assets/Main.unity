@@ -4912,6 +4912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff07fecd63e58d4da8da2e89d5e13bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBanana: 0
   minTime: 0.5
   maxTime: 5
   time: 1.3165

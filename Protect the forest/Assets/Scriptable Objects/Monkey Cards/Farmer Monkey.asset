@@ -16,3 +16,6 @@ MonoBehaviour:
   monkeySprite: {fileID: 21300000, guid: d1e3945a305ccb04283cae5fc8dc3a0e, type: 3}
   cost: 200
   cooldown: 5
+  isBanana: 1
+  bananaSpawnerTemplate: {fileID: 4029167241005653030, guid: 7cd0ee2b60759584e97019eafd403da2, type: 3}
+  size: {x: 0, y: 0}

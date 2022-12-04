@@ -11,4 +11,8 @@ public class MonkeyCardScriptableObjects : ScriptableObject
     public Sprite monkeySprite;
     public int cost;
     public float cooldown;
+    public bool isBanana;
+    public BananaSpawner bananaSpawnerTemplate;
+
+    public Vector2 size;
 }
