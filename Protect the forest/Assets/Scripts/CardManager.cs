@@ -8,93 +8,103 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     public GameObject UI;
     public SlotsManagerCollider colliderName;
     SlotsManagerCollider prevName;
-    public MonkeyCardScriptableObjects monkeyCardScriptableObjects;
-    public Sprite monkeySprite;
-    public GameObject monkeyPrefab;
+    public PlantCardScriptableObject plantCardScriptableObject;
+    public Sprite plantSprite;
+    public GameObject plantPrefab;
     public bool isOverCollider = false;
-    GameObject monkey;
-    bool isHoldingBanana;
-
-
+    GameObject plant;
+    bool isHoldingPlant;
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isHoldingBanana)
+        if (isHoldingPlant)
         {
-            //take a gameObject
-            monkey.GetComponent<SpriteRenderer>().sprite = monkeySprite;
+            //Take a gameObject
+            plant.GetComponent<SpriteRenderer>().sprite = plantSprite;
 
             if (prevName != colliderName || prevName == null)
             {
-                isOverCollider = false;
-                if (prevName != null)
+                if (!colliderName.isOccupied)
                 {
-                    prevName.monkey = null;
+                    plant.transform.position = new Vector3(0, 0, -1);
+                    plant.transform.localPosition = new Vector3(0, 0, -1);
+                    isOverCollider = false;
+                    if (prevName != null)
+                    {
+                        prevName.plant = null;
+                    }
+                    prevName = colliderName;
                 }
-                prevName = colliderName;
-
+            }
+            else
+            {
+                if (!colliderName.isOccupied)
+                {
+                    plant.transform.position = new Vector3(0, 0, -1);
+                    plant.transform.localPosition = new Vector3(0, 0, -1);
+                }
             }
 
             if (!isOverCollider)
             {
-                monkey.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                plant.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-
-
         }
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
 
-        if (GameObject.FindObjectOfType<GameManager>().BananaAmount >= monkeyCardScriptableObjects.cost)
+        if (GameObject.FindObjectOfType<GameManager>().SunAmount >= plantCardScriptableObject.cost)
         {
-            isHoldingBanana = true;
+            isHoldingPlant = true;
             Vector3 pos = new Vector3(0, 0, -1);
-            monkey = Instantiate(monkeyPrefab, pos, Quaternion.identity);
-            monkey.GetComponent<SpriteRenderer>().sprite = monkeySprite;
-            monkey.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            plant = Instantiate(plantPrefab, pos, Quaternion.identity);
+            plant.GetComponent<PlantManager>().thisSO = plantCardScriptableObject;
+            plant.GetComponent<PlantManager>().isDragging = true;
+            plant.transform.localScale = plantCardScriptableObject.size;
+            plant.GetComponent<SpriteRenderer>().sprite = plantSprite;
+
+            plant.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         else
         {
-            Debug.Log("Not Enough Banana");
+            Debug.Log("Not enough sun!");
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-
-        if (colliderName != null && !colliderName.isOccupied)
+        if (isHoldingPlant)
         {
-            if (isHoldingBanana)
+            if (colliderName != null && !colliderName.isOccupied)
             {
-                GameObject.FindObjectOfType<GameManager>().DeductBanana(monkeyCardScriptableObjects.cost);
-                isHoldingBanana = false;
+                GameObject.FindObjectOfType<GameManager>().DeductSun(plantCardScriptableObject.cost);
+                isHoldingPlant = false;
                 colliderName.isOccupied = true;
-                monkey.tag = "Untagged";
-                monkey.transform.SetParent(colliderName.transform);
-                monkey.transform.position = new Vector3(0, 0, -1);
-                monkey.transform.localPosition = new Vector3(0, 0, -1);
+                plant.tag = "Untagged";
+                plant.transform.SetParent(colliderName.transform);
+                plant.transform.position = new Vector3(0, 0, -1);
+                plant.transform.localPosition = new Vector3(0, 0, -1);
+                plant.AddComponent<BoxCollider2D>();
+                plant.AddComponent<CircleCollider2D>();
+                plant.GetComponent<CircleCollider2D>().isTrigger = true;
 
-                if (monkeyCardScriptableObjects.isBanana)
+                plant.GetComponent<PlantManager>().isDragging = false;
+                if (plantCardScriptableObject.isSunFlower)
                 {
-                    BananaSpawner bananaSpawner = monkey.AddComponent<BananaSpawner>();
-                    bananaSpawner.isBanana = true;
-                    bananaSpawner.minTime = monkeyCardScriptableObjects.bananaSpawnerTemplate.minTime;
-                    bananaSpawner.maxTime = monkeyCardScriptableObjects.bananaSpawnerTemplate.maxTime;
-                    bananaSpawner.Banana = monkeyCardScriptableObjects.bananaSpawnerTemplate.Banana;
-
+                    SunSpawner sunSpawner  = plant.AddComponent<SunSpawner>();
+                    sunSpawner.isSunFlower = true;
+                    sunSpawner.minTime = plantCardScriptableObject.sunSpawnerTemplate.minTime;
+                    sunSpawner.maxTime = plantCardScriptableObject.sunSpawnerTemplate.maxTime;
+                    sunSpawner.sun = plantCardScriptableObject.sunSpawnerTemplate.sun;
                 }
             }
             else
             {
-                isHoldingBanana = false;
-                Destroy(monkey);
+                isHoldingPlant = false;
+                Destroy(plant);
             }
         }
-
     }
-
-
 }

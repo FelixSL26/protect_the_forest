@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SlotsManagerCollider : MonoBehaviour
 {
-
-    public GameObject monkey;
+    public GameObject plant;
     public bool isOccupied = false;
 
     void OnMouseOver()
@@ -16,23 +15,25 @@ public class SlotsManagerCollider : MonoBehaviour
             item.isOverCollider = true;
         }
 
-
-        if (monkey == null)
+        if (plant == null)
         {
-            if (GameObject.FindGameObjectWithTag("Monkey") != null)
+            if (GameObject.FindGameObjectWithTag("Plant") != null)
             {
-                monkey = GameObject.FindGameObjectWithTag("Monkey");
-                monkey.transform.SetParent(this.transform);
+                plant = GameObject.FindGameObjectWithTag("Plant");
+                plant.transform.SetParent(this.transform);
                 Vector3 pos = new Vector3(0, 0, -1);
-                monkey.transform.localPosition = pos;
+                plant.transform.position = new Vector3(0, 0, -1);
+                plant.transform.localPosition = pos;
             }
-
+        }
+        else
+        {
+            isOccupied = false;
         }
     }
 
     private void OnMouseExit()
     {
-        //Destroy(monkey);
-    } 
-
+        //Destroy(plant);
+    }
 }

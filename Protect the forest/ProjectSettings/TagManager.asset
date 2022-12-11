@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Monkey
+  - Plant
   - Canvas
-  - Banana
+  - Sun
+  - Zombie
+  - ZombieHead
+  - ZombieHand
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Human
   - 
   - 
   - 
@@ -43,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Monkey and Human
+    uniqueID: 469393343
+    locked: 0
+  - name: Banana
+    uniqueID: 3306142063
     locked: 0

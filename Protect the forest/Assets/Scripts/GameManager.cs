@@ -5,32 +5,24 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text bananaDisp;
+    public TMP_Text sunDisp;
     public int startingSunAmnt;
-    public int BananaAmount = 0;
-    // Start is called before the first frame update
+    public int SunAmount = 0;
 
-    void Start()
+    private void Start()
     {
-        AddBanana(startingSunAmnt);
+        AddSun(startingSunAmnt);
     }
 
-    public void AddBanana(int amnt)
+    public void AddSun(int amnt)
     {
-        BananaAmount += amnt;
-        bananaDisp.text = "" + BananaAmount;
+        SunAmount += amnt;
+        sunDisp.text = "" + SunAmount;
     }
 
-    public void DeductBanana(int amnt)
+    public void DeductSun(int amnt)
     {
-        BananaAmount -= amnt;
-        bananaDisp.text = "" + BananaAmount;
-    }
-
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SunAmount -= amnt;
+        sunDisp.text = "" + SunAmount;
     }
 }
