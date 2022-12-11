@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SunSystem : MonoBehaviour
+public class BananaSystem : MonoBehaviour
 {
     public int SunValue;
 

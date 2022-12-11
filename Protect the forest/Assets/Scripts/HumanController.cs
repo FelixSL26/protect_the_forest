@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieController : MonoBehaviour
+public class HumanController : MonoBehaviour
 {
-    public ZombieScriptableObject thisZombieSO;
-    public ZombieAccessoriesManager zombieAccessories;
+    public HumanScriptableObject thisZombieSO;
+    public HumanAccessoriesManager zombieAccessories;
     public float speed;
     public float health;
     public float handHealth;

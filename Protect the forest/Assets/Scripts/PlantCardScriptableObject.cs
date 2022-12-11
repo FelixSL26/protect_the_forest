@@ -9,8 +9,8 @@ public class PlantCardScriptableObject : ScriptableObject
     public LayerMask zombieLayer;
     public int cost;
     public float cooldown;
-    public bool isSunFlower;
-    public SunSpawner sunSpawnerTemplate;
+    public bool isBananaFarmer;
+    public BananaSpawner sunSpawnerTemplate;
     public float health;
     public float damage;
     public float range;

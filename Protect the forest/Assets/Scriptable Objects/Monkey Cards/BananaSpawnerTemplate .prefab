@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121f7585659f1144788f045fbf416991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSunFlower: 1
-  minTime: 1
-  maxTime: 10
+  isBananaFarmer: 1
+  minTime: 3
+  maxTime: 15
   time: 0
-  sun: {fileID: 9032330746930513893, guid: 372e7cb489f34b64684979d546f436e0, type: 3}
+  banana: {fileID: 9032330746930513893, guid: 372e7cb489f34b64684979d546f436e0, type: 3}
   minPos: {x: 0, y: 0}
   maxPos: {x: 0, y: 0}

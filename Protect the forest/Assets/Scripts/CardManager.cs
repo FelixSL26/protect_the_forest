@@ -91,13 +91,13 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                 plant.GetComponent<CircleCollider2D>().isTrigger = true;
 
                 plant.GetComponent<PlantManager>().isDragging = false;
-                if (plantCardScriptableObject.isSunFlower)
+                if (plantCardScriptableObject.isBananaFarmer)
                 {
-                    SunSpawner sunSpawner  = plant.AddComponent<SunSpawner>();
-                    sunSpawner.isSunFlower = true;
+                    BananaSpawner sunSpawner  = plant.AddComponent<BananaSpawner>();
+                    sunSpawner.isBananaFarmer = true;
                     sunSpawner.minTime = plantCardScriptableObject.sunSpawnerTemplate.minTime;
                     sunSpawner.maxTime = plantCardScriptableObject.sunSpawnerTemplate.maxTime;
-                    sunSpawner.sun = plantCardScriptableObject.sunSpawnerTemplate.sun;
+                    sunSpawner.banana = plantCardScriptableObject.sunSpawnerTemplate.banana;
                 }
             }
             else

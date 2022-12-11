@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieAccessoriesManager : MonoBehaviour
+public class HumanAccessoriesManager : MonoBehaviour
 {
     public SpriteRenderer accessoryRenderer;
     public float accessoryHealth = 10f;

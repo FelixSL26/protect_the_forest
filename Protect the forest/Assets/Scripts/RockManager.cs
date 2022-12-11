@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeaManager : MonoBehaviour
+public class RockManager : MonoBehaviour
 {
     public float damage;
 
@@ -10,7 +10,7 @@ public class PeaManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Zombie")
         {
-            collision.gameObject.GetComponent<ZombieController>().DealDamage(damage);
+            collision.gameObject.GetComponent<HumanController>().DealDamage(damage);
             Destroy(this.gameObject);
         }
     }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieManager : MonoBehaviour
+public class HumanManager : MonoBehaviour
 {
-    public ZombieScriptableObject[] zombieScriptableObjects;
-    public ZombieScriptableObject selectedSO;
+    public HumanScriptableObject[] zombieScriptableObjects;
+    public HumanScriptableObject selectedSO;
     public float timeInterval;
     public bool randomizeTimes;
     public float minTime;
@@ -30,7 +30,7 @@ public class ZombieManager : MonoBehaviour
         int columnID = Random.Range(0, columns.Length);
         GameObject zombie = Instantiate(selectedSO.zombieDefault, columns[columnID]);
 
-        zombie.GetComponent<ZombieController>().thisZombieSO = selectedSO;
+        zombie.GetComponent<HumanController>().thisZombieSO = selectedSO;
 
         zombie.transform.SetParent(columns[columnID]);
         zombie.transform.position = new Vector3(0, 0, -1);
@@ -39,10 +39,10 @@ public class ZombieManager : MonoBehaviour
         if (selectedSO.zombieAccessory != null)
         {
             GameObject accessory = Instantiate(selectedSO.zombieAccessory, zombie.transform);
-            zombie.GetComponent<ZombieController>().accessory = accessory;
-            zombie.GetComponent<ZombieController>().zombieAccessories = accessory.GetComponent<ZombieAccessoriesManager>();
-            zombie.GetComponent<ZombieController>().zombieAccessories.accessoryHealth = selectedSO.accessoryHealth;
-            zombie.GetComponent<ZombieController>().zombieAccessories.accessoryHealthCurrent = selectedSO.accessoryHealth;
+            zombie.GetComponent<HumanController>().accessory = accessory;
+            zombie.GetComponent<HumanController>().zombieAccessories = accessory.GetComponent<HumanAccessoriesManager>();
+            zombie.GetComponent<HumanController>().zombieAccessories.accessoryHealth = selectedSO.accessoryHealth;
+            zombie.GetComponent<HumanController>().zombieAccessories.accessoryHealthCurrent = selectedSO.accessoryHealth;
         }
 
         StartCoroutine(ZombieSpawn());

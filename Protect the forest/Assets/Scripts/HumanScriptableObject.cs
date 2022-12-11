@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Entities/Zombies", fileName = "New Zombie")]
-public class ZombieScriptableObject : ScriptableObject
+public class HumanScriptableObject : ScriptableObject
 {
 	public GameObject zombieDefault;
 	public GameObject zombieAccessory;

@@ -74,7 +74,7 @@ public class PlantManager : MonoBehaviour
                 {
                     Debug.Log("Hit zombie");
                     GameObject bullet = Instantiate(Bullet, shootPoint.transform.position, Quaternion.identity);
-                    bullet.GetComponent<PeaManager>().damage = damage;
+                    bullet.GetComponent<RockManager>().damage = damage;
                     bullet.GetComponent<Rigidbody2D>().velocity = transform.right * speed;
                 }
             }
@@ -105,7 +105,7 @@ public class PlantManager : MonoBehaviour
         {
             if (collision.gameObject.tag == "Zombie")
             {
-                collision.GetComponent<ZombieController>().DealDamage(damage);
+                collision.GetComponent<HumanController>().DealDamage(damage);
             }
         }
     }

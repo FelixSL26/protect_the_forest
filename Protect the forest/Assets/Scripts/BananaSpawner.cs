@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunSpawner : MonoBehaviour
+public class BananaSpawner : MonoBehaviour
 {
-    public bool isSunFlower;
+    public bool isBananaFarmer;
 
     public float minTime;
     public float maxTime;
     public float time;
 
-    public GameObject sun;
+    public GameObject banana;
     public Vector2 minPos;
     public Vector2 maxPos;
     Vector3 pos;
@@ -18,7 +18,7 @@ public class SunSpawner : MonoBehaviour
     private void Start()
     {
         time = Random.Range(minTime, maxTime);
-        if (!isSunFlower)
+        if (!isBananaFarmer)
         {
             pos.x = Random.Range(minPos.x, maxPos.x);
             pos.y = Random.Range(minPos.y, maxPos.y);
@@ -36,10 +36,10 @@ public class SunSpawner : MonoBehaviour
     public IEnumerator SpawnSun()
     {
         yield return new WaitForSeconds(time);
-        GameObject SunObject = Instantiate(sun, pos, Quaternion.identity);
+        GameObject SunObject = Instantiate(banana, pos, Quaternion.identity);
 
         time = Random.Range(minTime, maxTime);
-        if (!isSunFlower)
+        if (!isBananaFarmer)
         {
             pos.x = Random.Range(minPos.x, maxPos.x);
             pos.y = Random.Range(minPos.y, maxPos.y);
