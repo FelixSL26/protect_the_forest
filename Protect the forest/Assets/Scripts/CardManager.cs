@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     public GameObject UI;
     public SlotsManagerCollider colliderName;
     SlotsManagerCollider prevName;
-    public PlantCardScriptableObject plantCardScriptableObject;
+    public MonkeyCardScriptableObject plantCardScriptableObject;
     public Sprite plantSprite;
     public GameObject plantPrefab;
     public bool isOverCollider = false;
@@ -60,8 +60,8 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
             isHoldingPlant = true;
             Vector3 pos = new Vector3(0, 0, -1);
             plant = Instantiate(plantPrefab, pos, Quaternion.identity);
-            plant.GetComponent<PlantManager>().thisSO = plantCardScriptableObject;
-            plant.GetComponent<PlantManager>().isDragging = true;
+            plant.GetComponent<MonkeyManager>().thisSO = plantCardScriptableObject;
+            plant.GetComponent<MonkeyManager>().isDragging = true;
             plant.transform.localScale = plantCardScriptableObject.size;
             plant.GetComponent<SpriteRenderer>().sprite = plantSprite;
 
@@ -90,7 +90,7 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                 plant.AddComponent<CircleCollider2D>();
                 plant.GetComponent<CircleCollider2D>().isTrigger = true;
 
-                plant.GetComponent<PlantManager>().isDragging = false;
+                plant.GetComponent<MonkeyManager>().isDragging = false;
                 if (plantCardScriptableObject.isBananaFarmer)
                 {
                     BananaSpawner sunSpawner  = plant.AddComponent<BananaSpawner>();

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Cards/Plant Card", fileName ="New Plant Card")]
-public class PlantCardScriptableObject : ScriptableObject
+public class MonkeyCardScriptableObject : ScriptableObject
 {
     public Texture plantIcon;
     public GameObject Bullet;

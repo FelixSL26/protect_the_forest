@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantManager : MonoBehaviour
+public class MonkeyManager : MonoBehaviour
 {
-    public PlantCardScriptableObject thisSO;
+    public MonkeyCardScriptableObject thisSO;
     public Transform shootPoint;
     public GameObject Bullet;
     public float health;

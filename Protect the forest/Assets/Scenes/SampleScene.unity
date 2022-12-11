@@ -1096,11 +1096,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121f7585659f1144788f045fbf416991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSunFlower: 0
+  isBananaFarmer: 0
   minTime: 1
   maxTime: 10
   time: 0
-  sun: {fileID: 9032330746930513893, guid: 372e7cb489f34b64684979d546f436e0, type: 3}
+  banana: {fileID: 9032330746930513893, guid: 8ac05b1ac3474e54aba9ed349175e491, type: 3}
   minPos: {x: -4.07, y: 5.424215}
   maxPos: {x: 7.291788, y: 5.424215}
 --- !u!1 &228004201

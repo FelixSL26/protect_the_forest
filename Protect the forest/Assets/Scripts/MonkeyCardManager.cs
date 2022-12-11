@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlantCardManager : MonoBehaviour
+public class MonkeyCardManager : MonoBehaviour
 {
     [Header("Cards Parameters")]
     public int amtOfCards;
-    public PlantCardScriptableObject[] plantCardSO;
+    public MonkeyCardScriptableObject[] plantCardSO;
     public GameObject cardPrefab;
     public Transform cardHolderTransform;
 

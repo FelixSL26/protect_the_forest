@@ -96,7 +96,7 @@ public class HumanController : MonoBehaviour
             target = collision.gameObject;
             StartCoroutine(Attack());
         }
-        else if (collision.gameObject.GetComponent<PlantManager>() != null)
+        else if (collision.gameObject.GetComponent<MonkeyManager>() != null)
         {
             isAttacking = true;
             target = collision.gameObject;
@@ -116,7 +116,7 @@ public class HumanController : MonoBehaviour
         //Attack Plant
         if (target != null)
         {
-            target.GetComponent<PlantManager>().Damage(damage);
+            target.GetComponent<MonkeyManager>().Damage(damage);
         }
 
         yield return new WaitForSeconds(attackInterval);
