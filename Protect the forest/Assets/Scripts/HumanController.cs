@@ -88,7 +88,7 @@ public class HumanController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
+        //Debug.Log("Collided with " + collision.gameObject.name);
         //Detect plant collisions
         if (collision.gameObject.tag == "Plant")
         {
