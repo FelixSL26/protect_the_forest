@@ -9,9 +9,25 @@ public class GameManager : MonoBehaviour
     public int startingSunAmnt;
     public int SunAmount = 0;
 
+    public Transform cardSlotsHorder;
+
     private void Start()
     {
         AddSun(startingSunAmnt);
+
+        foreach (Transform card in cardSlotsHorder)
+        {
+            try
+            {
+                card.GetComponent<CardManager>().StartRefresh();
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("Card does not contain CardManager script!");
+            }
+
+        }
+
     }
 
     public void AddSun(int amnt)

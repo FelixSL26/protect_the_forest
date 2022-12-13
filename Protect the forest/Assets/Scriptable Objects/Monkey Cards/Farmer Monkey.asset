@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   cost: 50
-  cooldown: 2
+  cooldown: 5
   isBananaFarmer: 1
   sunSpawnerTemplate: {fileID: 1501243854906866995, guid: 8aa48adacc23ff348a37448ad08993a0, type: 3}
   health: 50

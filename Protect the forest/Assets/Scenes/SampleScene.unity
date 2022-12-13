@@ -1605,6 +1605,7 @@ MonoBehaviour:
   sunDisp: {fileID: 709026623}
   startingSunAmnt: 1000
   SunAmount: 0
+  cardSlotsHorder: {fileID: 1527164871}
 --- !u!1 &392977962
 GameObject:
   m_ObjectHideFlags: 0

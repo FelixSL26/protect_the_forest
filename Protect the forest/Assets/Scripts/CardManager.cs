@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
@@ -15,8 +16,16 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
     GameObject plant;
     bool isHoldingPlant;
 
+    public Image refreshImage;
+
+    public bool isCoolingDown;
+    [Tooltip("X: Max Height, Y: Min Height")]
+    public Vector2 height;
+
     public void OnDrag(PointerEventData eventData)
     {
+
+
         if (isHoldingPlant)
         {
             //Take a gameObject
@@ -54,6 +63,10 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isCoolingDown)
+        {
+            return;
+        }
 
         if (GameObject.FindObjectOfType<GameManager>().SunAmount >= plantCardScriptableObject.cost)
         {
@@ -75,6 +88,11 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (isCoolingDown)
+        {
+            return;
+        }
+
         if (isHoldingPlant)
         {
             if (colliderName != null && !colliderName.isOccupied)
@@ -99,6 +117,10 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                     sunSpawner.maxTime = plantCardScriptableObject.sunSpawnerTemplate.maxTime;
                     sunSpawner.banana = plantCardScriptableObject.sunSpawnerTemplate.banana;
                 }
+
+
+                //Disable plant before cooldown finished
+                StartCoroutine(cardCooldown(plantCardScriptableObject.cooldown));
             }
             else
             {
@@ -106,5 +128,22 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                 Destroy(plant);
             }
         }
+    }
+
+    public IEnumerator cardCooldown(float cooldownDuration) 
+    {
+        isCoolingDown = true;
+
+        for (float i = height.x; i <= height.y; i++)
+        {
+            refreshImage.rectTransform.anchoredPosition = new Vector3(3, i,0);
+            yield return new WaitForSeconds(cooldownDuration / height.y);
+        }
+        isCoolingDown = false;
+    }
+
+    public void StartRefresh()
+    {
+        StartCoroutine(cardCooldown(plantCardScriptableObject.cooldown));
     }
 }
