@@ -17,6 +17,6 @@ MonoBehaviour:
   accessoryHealth: 0
   zombieHealth: 100
   zombieHandHealth: 50
-  zombieDamage: 10
+  zombieDamage: 0.07
   zombieSpeed: 0.5
-  attackInterval: 1
+  attackInterval: 0.001

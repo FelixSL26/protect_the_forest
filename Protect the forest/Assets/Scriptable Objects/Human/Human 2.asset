@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieDefault: {fileID: 3987133898451156565, guid: 66f872246af4e2142a870354cf9a334c, type: 3}
   zombieAccessory: {fileID: 3330526956472489617, guid: 8916ef1244e865f4b9d26bb598743216, type: 3}
-  accessoryHealth: 35
+  accessoryHealth: 50
   zombieHealth: 100
   zombieHandHealth: 50
-  zombieDamage: 15
+  zombieDamage: 0.15
   zombieSpeed: 0.5
-  attackInterval: 1
+  attackInterval: 0.01
