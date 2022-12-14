@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
@@ -58,6 +59,10 @@ public class WaveManager : MonoBehaviour
         currentKills = currentHumanCount;
         levelProgress.value = currentKills;
 
+        if (currentKills >= 40){
+            SceneManager.LoadScene("Win");
+            Debug.Log("win!");
+        }
 
         if (currentKills >= nextGoal)
         {
