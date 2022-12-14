@@ -14,14 +14,6 @@ public class MonkeyManager : MonoBehaviour
     public LayerMask zombieLayer;
     public float fireRate;
 
-    public bool isMine;
-    public float growDuration;
-    public GameObject explosion;
-    public Sprite grownSprite;
-    public float blinkingRate;
-    public Sprite[] states;
-    public int stateCount;
-    public bool isGrown;
 
     public bool isDragging = true;
 
@@ -35,18 +27,7 @@ public class MonkeyManager : MonoBehaviour
         zombieLayer = thisSO.zombieLayer;
         fireRate = thisSO.fireRate;
 
-        isMine = thisSO.isMine;
-        growDuration = thisSO.growDuration;
-        explosion = thisSO.Explosion;
-        grownSprite = thisSO.grownSprite;
-        blinkingRate = thisSO.blinkingRate;
-        states = thisSO.mineStates;
 
-        if (isMine)
-        {
-            StartCoroutine(mineStateUpdate());
-            StartCoroutine(blink());
-        }
 
         StartCoroutine(Attack());
     }
@@ -82,45 +63,9 @@ public class MonkeyManager : MonoBehaviour
         }
     }
 
-    public IEnumerator mineStateUpdate()
-    {
-        isGrown = false;
-        yield return new WaitUntil(() => !isDragging);
-        yield return new WaitForSeconds(growDuration);
-        isGrown = true;
-    }
 
-    public IEnumerator blink()
-    {
-        yield return new WaitUntil(() => !isDragging);
-        this.GetComponent<SpriteRenderer>().sprite = states[stateCount];
-        yield return new WaitForSeconds(blinkingRate);
-        stateCount = isGrown ? stateCount == 2 ? 3 : 2 : stateCount == 1 ? 0 : 1;
-        StartCoroutine(blink());
-    }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isMine && isGrown)
-        {
-            if (collision.gameObject.tag == "Zombie")
-            {
-                collision.GetComponent<HumanController>().DealDamage(damage);
-            }
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (isMine && isGrown)
-        {
-            if (collision.gameObject.tag == "Zombie")
-            {
-                Instantiate(explosion, this.transform);
-                Destroy(this.gameObject);
-            }
-        }
-    }
 
     public void Damage(float amnt)
     {

@@ -18,5 +18,5 @@ MonoBehaviour:
   zombieHealth: 100
   zombieHandHealth: 50
   zombieDamage: 0.07
-  zombieSpeed: 0.5
+  zombieSpeed: 0.4
   attackInterval: 0.001

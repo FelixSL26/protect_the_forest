@@ -16,14 +16,6 @@ public class MonkeyCardScriptableObject : ScriptableObject
     public float range;
     public float speed;
     public float fireRate;
-    [Header("Mine Parameters")]
-    public bool isMine;
-    public GameObject Explosion;
-    public float growDuration;
-    public Sprite grownSprite;
-    public float blinkingRate;
-    [Header("0 : Grey ungrown, 1 : red ungrown, 2 : Grey grown, 3 : red ungrown")]
-    public Sprite[] mineStates;
 
     public Vector2 size;
 }

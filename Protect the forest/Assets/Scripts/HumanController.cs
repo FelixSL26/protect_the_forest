@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class HumanController : MonoBehaviour
 {
     public HumanScriptableObject thisZombieSO;
@@ -17,9 +18,12 @@ public class HumanController : MonoBehaviour
     GameObject target;
     public bool isAttacking;
 
+    public AudioClip damageAudio;
+
     public float damageDelay = 2f;
 
     bool isDying;
+    bool incremented = false;
 
     private void Start()
     {
@@ -48,22 +52,17 @@ public class HumanController : MonoBehaviour
             this.transform.position = this.transform.position;
         }
 
-        if (currentHealth <= handHealth && this.transform.childCount > 1)
-        {
-            //Add rigidbody 2d to hand
-            Transform hand = this.transform.GetChild(1);
-
-            hand.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            hand.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
-
-            hand.SetParent(null);
-
-            Destroy(hand.gameObject, 1.5f);
-        }
 
         if (currentHealth <= 0 && this.transform.childCount > 0)
         {
             isDying = true;
+
+            if (!incremented)
+            {
+                incremented = true;
+                WaveManager.currentHumanCount++;
+            }
+
             //Dead
             //Add rigidbody 2d to head
             Transform head = this.transform.GetChild(0);
@@ -126,6 +125,8 @@ public class HumanController : MonoBehaviour
     public void DealDamage(float amnt)
     {
         //Audio to play
+        this.GetComponent<AudioSource>().PlayOneShot(damageAudio);
+
         currentHealth -= amnt;
 
         if (zombieAccessories != null)
