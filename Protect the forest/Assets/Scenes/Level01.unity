@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de5f4e7682a8204e8628ffede5f434d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGoals: 0a000000140000001e00000028000000
+  levelGoals: 0a000000
   flagTransform: {fileID: 683498205}
   flagPrefab: {fileID: 1057372324211570023, guid: 1f361d6221d773045a7715e7b8af32fd, type: 3}
   levelProgress: {fileID: 642429668}

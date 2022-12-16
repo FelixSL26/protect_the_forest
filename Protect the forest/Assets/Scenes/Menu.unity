@@ -755,7 +755,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1431983103}
         m_TargetAssemblyTypeName: MenuEvents, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevel01
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -59,18 +59,25 @@ public class WaveManager : MonoBehaviour
         currentKills = currentHumanCount;
         levelProgress.value = currentKills;
 
-        if (currentKills >= 40){
-            SceneManager.LoadScene("Win");
-            Debug.Log("win!");
-        }
-
         if (currentKills >= nextGoal)
         {
             flags[goalsToIndex[nextGoal]].Expand();
 
             nextGoal = levelGoals[levelGoals.IndexOf(nextGoal) + 1 < levelGoals.Count ? levelGoals.IndexOf(nextGoal) + 1 : 0];
         }
+
+        if (currentKills >= 10)
+        {
+            SceneManager.LoadScene("Win");
+            Debug.Log("win!");
+            currentKills = 0;
+            currentHumanCount = 0;
+            Debug.Log(currentKills);
+        }
     }
+
+
+
 
 
 }

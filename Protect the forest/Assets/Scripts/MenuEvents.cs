@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuEvents : MonoBehaviour
 {
-    public void LoadLevel(int index)
+    public void LoadLevel01(int index)
     {
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene("Level01");
+    }
+
+    public void LoadMenu(int index)
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void ExitButton()
